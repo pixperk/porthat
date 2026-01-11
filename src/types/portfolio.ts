@@ -65,6 +65,7 @@ export interface Education {
 export interface PortfolioData {
   theme: string;
   github: string;
+  illustration?: boolean;
   profile: Profile;
   roles: string[];
   socials: Social[];
