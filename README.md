@@ -247,12 +247,13 @@ curl -X POST https://accounts.spotify.com/api/token \
 Create a `.env` file in your project root:
 
 ```env
+VITE_SITE_URL=https://your-domain.com
 VITE_SPOTIFY_CLIENT_ID=your_client_id
 VITE_SPOTIFY_CLIENT_SECRET=your_client_secret
 VITE_SPOTIFY_REFRESH_TOKEN=your_refresh_token
 ```
 
-The widget will automatically show your currently playing track, or your last played track if nothing is playing.
+`VITE_SITE_URL` is used for OG meta tags and should be your production domain. The Spotify widget will automatically show your currently playing track, or your last played track if nothing is playing.
 
 ## Demo Mode
 

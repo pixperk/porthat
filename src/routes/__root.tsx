@@ -5,7 +5,7 @@ import portfolioData from "../data/data.json";
 const { profile, roles } = portfolioData;
 const siteTitle = `${profile.name} | Portfolio`;
 const siteDescription = profile.bio;
-const siteUrl = "https://portfolio.example.com";
+const siteUrl = import.meta.env.VITE_SITE_URL || "http://localhost:3000";
 const ogImage = `${siteUrl}/assets/ogimg.png`;
 
 export const Route = createRootRoute({
