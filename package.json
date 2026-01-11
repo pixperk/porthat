@@ -1,6 +1,13 @@
 {
   "name": "porthat",
-  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "pixperk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixperk/porthat.git"
+  },
+  "private": false,
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",

@@ -42,7 +42,7 @@ A modern, customizable portfolio template built with TanStack Start and React 19
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-username/porthat.git
+git clone https://github.com/pixperk/porthat.git
 cd porthat
 npm install
 npm run dev

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Settings, X, Palette, BookOpen, Check, Sun, Moon } from "lucide-react";
+import { Settings, X, Palette, BookOpen, Check, Sun, Moon, Github, Twitter } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { THEME_PRESETS } from "../../lib/themes";
 
@@ -197,9 +197,9 @@ export default function IllustrationOverlay() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t" style={{ borderColor: colors.border }}>
+                <div className="mt-8 pt-6 border-t space-y-3" style={{ borderColor: colors.border }}>
                   <a
-                    href="https://github.com/your-username/porthat"
+                    href="https://github.com/pixperk/porthat"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full p-3 rounded-xl font-medium transition-all cursor-pointer"
@@ -208,8 +208,21 @@ export default function IllustrationOverlay() {
                       color: "white",
                     }}
                   >
-                    <BookOpen className="w-4 h-4" />
-                    View Documentation
+                    <Github className="w-4 h-4" />
+                    View on GitHub
+                  </a>
+                  <a
+                    href="https://twitter.com/pixperk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full p-3 rounded-xl font-medium transition-all border cursor-pointer"
+                    style={{
+                      borderColor: colors.border,
+                      color: colors.foreground,
+                    }}
+                  >
+                    <Twitter className="w-4 h-4" />
+                    Follow @pixperk
                   </a>
                 </div>
               </div>
