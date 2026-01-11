@@ -6,6 +6,7 @@ const { profile, roles } = portfolioData;
 const siteTitle = `${profile.name} | Portfolio`;
 const siteDescription = profile.bio;
 const siteUrl = "https://portfolio.example.com";
+const ogImage = `${siteUrl}/assets/ogimg.png`;
 
 export const Route = createRootRoute({
   head: () => ({
@@ -20,13 +21,13 @@ export const Route = createRootRoute({
       { property: "og:url", content: siteUrl },
       { property: "og:title", content: siteTitle },
       { property: "og:description", content: siteDescription },
-      { property: "og:image", content: profile.banner },
+      { property: "og:image", content: ogImage },
       { property: "og:site_name", content: profile.name },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: siteUrl },
       { name: "twitter:title", content: siteTitle },
       { name: "twitter:description", content: siteDescription },
-      { name: "twitter:image", content: profile.banner },
+      { name: "twitter:image", content: ogImage },
       { name: "theme-color", content: "#0a0a0a" },
     ],
     links: [

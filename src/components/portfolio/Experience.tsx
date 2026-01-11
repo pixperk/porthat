@@ -62,7 +62,7 @@ export default function Experience({ experiences }: ExperienceProps) {
             >
               <button
                 onClick={() => setExpandedExp(expandedExp === index ? null : index)}
-                className="w-full p-3 sm:p-4 text-left transition-colors"
+                className="w-full p-3 sm:p-4 text-left transition-colors cursor-pointer"
                 style={{
                   backgroundColor: "transparent",
                 }}
@@ -141,7 +141,7 @@ export default function Experience({ experiences }: ExperienceProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border cursor-pointer"
               style={{
                 background: mode === "dark" ? `${colors.accent}15` : `${colors.accent}10`,
                 borderColor: mode === "dark" ? `${colors.accent}30` : `${colors.accent}20`,

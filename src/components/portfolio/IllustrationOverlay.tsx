@@ -32,7 +32,7 @@ export default function IllustrationOverlay() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 200 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-xl backdrop-blur-md border transition-transform hover:scale-110"
+        className="fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-xl backdrop-blur-md border transition-transform hover:scale-110 cursor-pointer"
         style={{
           background: `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`,
           borderColor: `${colors.highlight}40`,
@@ -49,7 +49,7 @@ export default function IllustrationOverlay() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm cursor-pointer"
             />
 
             <motion.div
@@ -70,7 +70,7 @@ export default function IllustrationOverlay() {
                   </h2>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 rounded-lg transition-colors hover:bg-white/10"
+                    className="p-2 rounded-lg transition-colors hover:bg-white/10 cursor-pointer"
                     style={{ color: colors.foreground }}
                   >
                     <X className="w-5 h-5" />
@@ -104,7 +104,7 @@ export default function IllustrationOverlay() {
                         <button
                           key={key}
                           onClick={() => setTheme(key)}
-                          className="flex items-center gap-2 p-3 rounded-xl border transition-all"
+                          className="flex items-center gap-2 p-3 rounded-xl border transition-all cursor-pointer"
                           style={{
                             backgroundColor: isActive ? `${colors.highlight}20` : "transparent",
                             borderColor: isActive ? colors.highlight : colors.border,
@@ -144,7 +144,7 @@ export default function IllustrationOverlay() {
                   <div className="flex gap-2">
                     <button
                       onClick={(e) => setMode("light", e)}
-                      className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl border transition-all"
+                      className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl border transition-all cursor-pointer"
                       style={{
                         backgroundColor: mode === "light" ? `${colors.highlight}20` : "transparent",
                         borderColor: mode === "light" ? colors.highlight : colors.border,
@@ -155,7 +155,7 @@ export default function IllustrationOverlay() {
                     </button>
                     <button
                       onClick={(e) => setMode("dark", e)}
-                      className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl border transition-all"
+                      className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl border transition-all cursor-pointer"
                       style={{
                         backgroundColor: mode === "dark" ? `${colors.highlight}20` : "transparent",
                         borderColor: mode === "dark" ? colors.highlight : colors.border,
@@ -202,7 +202,7 @@ export default function IllustrationOverlay() {
                     href="https://github.com/your-username/porthat"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full p-3 rounded-xl font-medium transition-all"
+                    className="flex items-center justify-center gap-2 w-full p-3 rounded-xl font-medium transition-all cursor-pointer"
                     style={{
                       background: `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`,
                       color: "white",

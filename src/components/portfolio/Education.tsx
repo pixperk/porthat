@@ -62,7 +62,7 @@ export default function Education({ education }: EducationProps) {
             >
               <button
                 onClick={() => setExpandedEdu(expandedEdu === index ? null : index)}
-                className="w-full p-3 sm:p-4 text-left transition-colors"
+                className="w-full p-3 sm:p-4 text-left transition-colors cursor-pointer"
                 style={{ backgroundColor: "transparent" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = mode === "dark" ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.2)";
@@ -145,7 +145,7 @@ export default function Education({ education }: EducationProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border cursor-pointer"
               style={{
                 background: mode === "dark" ? `${colors.highlight}15` : `${colors.highlight}10`,
                 borderColor: mode === "dark" ? `${colors.highlight}30` : `${colors.highlight}20`,

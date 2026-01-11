@@ -89,7 +89,7 @@ export default function Projects({ projects }: ProjectsProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="p-1.5 rounded-md backdrop-blur-md transition-colors bg-black/50 hover:bg-black/70 text-white"
+                      className="p-1.5 rounded-md backdrop-blur-md transition-colors bg-black/50 hover:bg-black/70 text-white cursor-pointer"
                     >
                       <Github className="w-3.5 h-3.5" />
                     </a>
@@ -100,7 +100,7 @@ export default function Projects({ projects }: ProjectsProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="p-1.5 rounded-md backdrop-blur-md transition-colors bg-black/50 hover:bg-black/70 text-white"
+                      className="p-1.5 rounded-md backdrop-blur-md transition-colors bg-black/50 hover:bg-black/70 text-white cursor-pointer"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>

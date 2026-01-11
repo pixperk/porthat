@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 
 interface FooterProps {
@@ -8,7 +9,11 @@ interface FooterProps {
 
 export default function Footer({ quotes, handle }: FooterProps) {
   const { colors } = useTheme();
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  const [quote, setQuote] = useState(quotes[0]);
+
+  useEffect(() => {
+    setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+  }, [quotes]);
 
   return (
     <motion.section
@@ -41,7 +46,7 @@ export default function Footer({ quotes, handle }: FooterProps) {
           className="text-base sm:text-lg md:text-xl font-serif italic max-w-md mx-auto leading-relaxed px-4"
           style={{ color: `${colors.foreground}b3`, textShadow: `0 0 40px ${colors.highlight}20` }}
         >
-          "{randomQuote}"
+          "{quote}"
         </p>
       </motion.blockquote>
 

@@ -63,7 +63,7 @@ export default function Blog({ blogs }: BlogProps) {
               href={`/blog/${blog.slug}`}
               variants={ANIMATION.cardItem}
               whileHover={{ x: 4 }}
-              className="flex gap-3 sm:gap-4 rounded-xl border p-2.5 sm:p-3 transition-all group backdrop-blur-md"
+              className="flex gap-3 sm:gap-4 rounded-xl border p-2.5 sm:p-3 transition-all group backdrop-blur-md cursor-pointer"
               style={{
                 backgroundColor: mode === "dark" ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.5)",
                 borderColor: mode === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)",
@@ -140,7 +140,7 @@ export default function Blog({ blogs }: BlogProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border cursor-pointer"
               style={{
                 background: mode === "dark" ? `${colors.secondary}15` : `${colors.secondary}10`,
                 borderColor: mode === "dark" ? `${colors.secondary}30` : `${colors.secondary}20`,

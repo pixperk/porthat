@@ -31,7 +31,7 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
           <img src={profile.banner} alt="Banner" className="w-full h-full object-cover" />
           <button
             onClick={(e) => setMode(mode === "dark" ? "light" : "dark", e)}
-            className="absolute top-3 right-3 p-2 rounded-lg transition-colors backdrop-blur-sm hover:bg-white/30"
+            className="absolute top-3 right-3 p-2 rounded-lg transition-colors backdrop-blur-sm hover:bg-white/30 cursor-pointer"
             style={{
               backgroundColor: "rgba(255,255,255,0.2)",
               color: "#fff",
@@ -73,7 +73,7 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-auto flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200"
+              className="ml-auto flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer"
               style={{
                 backgroundColor: mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
                 color: `${colors.foreground}b3`,
@@ -116,7 +116,7 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             style={{ background: getGradient(colors), boxShadow: `0 10px 15px -3px ${colors.primary}40` }}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium text-white relative overflow-hidden group transition-all duration-300 hover:shadow-lg"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium text-white relative overflow-hidden group transition-all duration-300 hover:shadow-lg cursor-pointer"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 relative z-10" />
@@ -126,7 +126,7 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
             href={`mailto:${profile.email}`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium border-2 transition-all duration-300"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium border-2 transition-all duration-300 cursor-pointer"
             style={{
               borderColor: mode === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
               color: colors.foreground,
@@ -158,7 +158,7 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-xs sm:text-sm transition-all duration-200"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-xs sm:text-sm transition-all duration-200 cursor-pointer"
                 style={{
                   backgroundColor: mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
                   color: `${colors.foreground}b3`,
