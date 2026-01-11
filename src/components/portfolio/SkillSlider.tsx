@@ -74,7 +74,7 @@ export default function SkillSlider({ skills }: SkillSliderProps) {
               {IconComponent && (
                 <IconComponent
                   className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
-                  style={{ color: colors.primary }}
+                  style={{ color: skill.color }}
                 />
               )}
               <span

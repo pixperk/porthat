@@ -1,9 +1,16 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, MoveUpRight } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { ANIMATION } from "../../lib/constants";
 import { getSectionGradient, getGlowColor } from "../../lib/themes";
 import type { Project } from "../../types/portfolio";
+
+const GRADIENT_IMAGES = [
+  "/assets/gradient1.jpg",
+  "/assets/gradient2.jpg",
+  "/assets/gradient3.jpg",
+  "/assets/gradient4.jpg",
+];
 
 interface ProjectsProps {
   projects: Project[];
@@ -32,7 +39,7 @@ export default function Projects({ projects }: ProjectsProps) {
             style={{ background: `linear-gradient(to bottom, ${colors.highlight}, ${colors.primary})` }}
           />
           <h2 className="text-base sm:text-lg font-semibold" style={{ color: colors.foreground }}>
-            Projects
+            Things I've built
           </h2>
         </div>
 
@@ -43,7 +50,7 @@ export default function Projects({ projects }: ProjectsProps) {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {projects.map((project) => (
+          {projects.filter(p => p.featured).map((project, index) => (
             <motion.div
               key={project.id}
               variants={ANIMATION.cardItem}
@@ -62,13 +69,19 @@ export default function Projects({ projects }: ProjectsProps) {
                 e.currentTarget.style.borderColor = mode === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)";
               }}
             >
-              <div className="relative h-36 sm:h-44 overflow-hidden bg-black/50">
+              <div className="relative h-36 sm:h-44 overflow-hidden bg-black">
                 <img
-                  src={project.image}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                  src={GRADIENT_IMAGES[index % 4]}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-[90%] sm:w-[85%] h-[85%] sm:h-[80%] object-cover rounded-lg shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
                 <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
                   {project.github && (
                     <a
@@ -101,19 +114,28 @@ export default function Projects({ projects }: ProjectsProps) {
                 <p className="text-xs sm:text-sm leading-relaxed line-clamp-2 mb-2 sm:mb-3" style={{ color: `${colors.foreground}99` }}>
                   {project.description}
                 </p>
-                <div className="flex gap-1 flex-wrap">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium"
-                      style={{
-                        backgroundColor: mode === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
-                        color: `${colors.foreground}b3`,
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="flex items-center justify-between gap-2">
+                  <span
+                    className="inline-flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap"
+                    style={{ color: colors.primary }}
+                  >
+                    View Project
+                    <MoveUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                  <div className="flex gap-1 flex-shrink-0">
+                    {project.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium"
+                        style={{
+                          backgroundColor: mode === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
+                          color: `${colors.foreground}b3`,
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

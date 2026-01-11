@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { ANIMATION } from "../../lib/constants";
 import { getSectionGradient, getGlowColor } from "../../lib/themes";
 import type { Experience as ExperienceType } from "../../types/portfolio";
+
+const INITIAL_SHOW_COUNT = 4;
 
 interface ExperienceProps {
   experiences: ExperienceType[];
@@ -13,6 +15,10 @@ interface ExperienceProps {
 export default function Experience({ experiences }: ExperienceProps) {
   const { colors, mode } = useTheme();
   const [expandedExp, setExpandedExp] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedExperiences = showAll ? experiences : experiences.slice(0, INITIAL_SHOW_COUNT);
+  const hasMore = experiences.length > INITIAL_SHOW_COUNT;
 
   return (
     <motion.section
@@ -34,12 +40,12 @@ export default function Experience({ experiences }: ExperienceProps) {
             style={{ background: `linear-gradient(to bottom, ${colors.accent}, ${colors.secondary})` }}
           />
           <h2 className="text-base sm:text-lg font-semibold" style={{ color: colors.foreground }}>
-            Experience
+            Where I've worked
           </h2>
         </div>
 
         <div className="space-y-3">
-          {experiences.map((exp, index) => (
+          {displayedExperiences.map((exp, index) => (
             <motion.div
               key={index}
               className="rounded-xl border overflow-hidden transition-all backdrop-blur-md"
@@ -128,6 +134,34 @@ export default function Experience({ experiences }: ExperienceProps) {
             </motion.div>
           ))}
         </div>
+
+        {hasMore && (
+          <div className="flex justify-center mt-4">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border"
+              style={{
+                background: mode === "dark" ? `${colors.accent}15` : `${colors.accent}10`,
+                borderColor: mode === "dark" ? `${colors.accent}30` : `${colors.accent}20`,
+                color: mode === "dark" ? colors.highlight : colors.primary,
+              }}
+            >
+              {showAll ? (
+                <>
+                  Show less
+                  <ChevronUp className="w-3.5 h-3.5" />
+                </>
+              ) : (
+                <>
+                  Show {experiences.length - INITIAL_SHOW_COUNT} more
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </>
+              )}
+            </motion.button>
+          </div>
+        )}
       </div>
     </motion.section>
   );

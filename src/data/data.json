@@ -1,10 +1,11 @@
 {
-  "theme": "midnight",
+  "theme": "monochrome",
+  "github": "torvalds",
   "profile": {
     "name": "Lelouch vi Britannia",
     "handle": "zero",
-    "avatar": "https://i.pinimg.com/736x/d5/5b/a4/d55ba47c34b1e26d0b8bcb5b9d5a7c32.jpg",
-    "banner": "https://i.pinimg.com/originals/8b/0e/47/8b0e47e45d7c16f8e3d8f3d3f3d3f3d3.jpg",
+    "avatar": "https://imgs.search.brave.com/llxNE6-IlXfe7sZMwozzEt1J3aKGPAZLcfWDMr3L8Vc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvNDE5/NTQwNC5qcGc",
+    "banner": "https://wallpapercave.com/wp/wp2883490.jpg",
     "bio": "Revolutionary strategist and tactical genius. Wielder of the Power of Absolute Obedience. Fighting for a world where the weak are not oppressed.",
     "location": "Area 11 (Japan)",
     "resumeUrl": "#",
@@ -18,19 +19,63 @@
     "Geass User"
   ],
   "socials": [
-    { "name": "GitHub", "url": "https://github.com/zero", "icon": "github" },
-    { "name": "Twitter", "url": "https://twitter.com/zero", "icon": "twitter" },
-    { "name": "LinkedIn", "url": "https://linkedin.com/in/zero", "icon": "linkedin" }
+    {
+      "name": "GitHub",
+      "url": "https://github.com/zero",
+      "icon": "github"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/zero",
+      "icon": "twitter"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/zero",
+      "icon": "linkedin"
+    }
   ],
   "skills": [
-    { "name": "Strategic Planning", "icon": "brain" },
-    { "name": "Tactical Analysis", "icon": "target" },
-    { "name": "Leadership", "icon": "crown" },
-    { "name": "Chess", "icon": "trophy" },
-    { "name": "Knightmare Piloting", "icon": "gamepad" },
-    { "name": "Manipulation", "icon": "message" },
-    { "name": "Public Speaking", "icon": "mic" },
-    { "name": "Geass Control", "icon": "eye" }
+    {
+      "name": "Strategic Planning",
+      "icon": "brain",
+      "color": "#8B5CF6"
+    },
+    {
+      "name": "Tactical Analysis",
+      "icon": "target",
+      "color": "#EF4444"
+    },
+    {
+      "name": "Leadership",
+      "icon": "crown",
+      "color": "#F59E0B"
+    },
+    {
+      "name": "Chess",
+      "icon": "trophy",
+      "color": "#10B981"
+    },
+    {
+      "name": "Knightmare Piloting",
+      "icon": "gamepad",
+      "color": "#3B82F6"
+    },
+    {
+      "name": "Manipulation",
+      "icon": "message",
+      "color": "#EC4899"
+    },
+    {
+      "name": "Public Speaking",
+      "icon": "mic",
+      "color": "#06B6D4"
+    },
+    {
+      "name": "Geass Control",
+      "icon": "eye",
+      "color": "#DC2626"
+    }
   ],
   "experience": [
     {
@@ -78,8 +123,12 @@
       "title": "Zero Requiem",
       "slug": "zero-requiem",
       "description": "The ultimate plan to end all conflict by uniting the world against a common enemy, achieving lasting peace through sacrifice.",
-      "image": "https://i.pinimg.com/originals/zero-requiem.jpg",
-      "tags": ["Strategy", "Peace", "Sacrifice"],
+      "image": "https://wallpapercave.com/wp/4FBo5yQ.jpg",
+      "tags": [
+        "Strategy",
+        "Peace",
+        "Sacrifice"
+      ],
       "github": null,
       "demo": null,
       "featured": true
@@ -89,8 +138,12 @@
       "title": "Black Knights Formation",
       "slug": "black-knights",
       "description": "Created a revolutionary military organization from scattered resistance groups, becoming the world's most powerful independent army.",
-      "image": "https://i.pinimg.com/originals/black-knights.jpg",
-      "tags": ["Leadership", "Military", "Revolution"],
+      "image": "https://wallpapercave.com/wp/wp2883518.jpg",
+      "tags": [
+        "Leadership",
+        "Military",
+        "Revolution"
+      ],
       "github": null,
       "demo": null,
       "featured": true
@@ -100,8 +153,12 @@
       "title": "United Federation of Nations",
       "slug": "ufn",
       "description": "Diplomatic achievement uniting 47 nations against the Britannian Empire, establishing a democratic world order.",
-      "image": "https://i.pinimg.com/originals/ufn.jpg",
-      "tags": ["Diplomacy", "Politics", "Unity"],
+      "image": "https://wallpapercave.com/wp/yO2TljR.jpg",
+      "tags": [
+        "Diplomacy",
+        "Politics",
+        "Unity"
+      ],
       "github": null,
       "demo": null,
       "featured": true
@@ -111,51 +168,56 @@
       "title": "Geass Strategic Applications",
       "slug": "geass-strategy",
       "description": "Mastered the Power of Absolute Obedience, developing tactical frameworks for its ethical and strategic deployment.",
-      "image": "https://i.pinimg.com/originals/geass.jpg",
-      "tags": ["Geass", "Power", "Control"],
+      "image": "https://wallpapercave.com/wp/wp2883490.jpg",
+      "tags": [
+        "Geass",
+        "Power",
+        "Control"
+      ],
       "github": null,
       "demo": null,
-      "featured": false
-    },
-    {
-      "id": "5",
-      "title": "Operation Black Rebellion",
-      "slug": "black-rebellion",
-      "description": "First major offensive against Britannian forces in Area 11, demonstrating tactical superiority despite numerical disadvantage.",
-      "image": "https://i.pinimg.com/originals/rebellion.jpg",
-      "tags": ["Military", "Tactics", "Rebellion"],
-      "github": null,
-      "demo": null,
-      "featured": false
-    },
-    {
-      "id": "6",
-      "title": "Chess AI Development",
-      "slug": "chess-ai",
-      "description": "Developed unbeatable chess strategies by treating battles like games, achieving victory against noble opponents.",
-      "image": "https://i.pinimg.com/originals/chess.jpg",
-      "tags": ["Chess", "Strategy", "Games"],
-      "github": null,
-      "demo": null,
-      "featured": false
+      "featured": true
     }
   ],
-  "achievements": [
+  "blogs": [
     {
-      "title": "Liberated Japan",
-      "description": "Successfully freed Area 11 from Britannian occupation"
+      "slug": "the-power-of-geass",
+      "title": "The Power of Geass: Understanding Absolute Obedience",
+      "date": "2018-03-15",
+      "excerpt": "An exploration of the Geass power, its origins from C.C., and the ethical implications of commanding absolute obedience.",
+      "tags": [
+        "Geass",
+        "Philosophy",
+        "Power"
+      ],
+      "coverImage": "https://wallpapercave.com/wp/wp2883497.jpg",
+      "readingTime": "5 min"
     },
     {
-      "title": "Defeated Emperor Charles",
-      "description": "Stopped the Ragnarök Connection and saved humanity's free will"
+      "slug": "strategic-warfare",
+      "title": "Strategic Warfare: Lessons from the Black Rebellion",
+      "date": "2018-02-20",
+      "excerpt": "Breaking down the tactical decisions that led to the success of the Black Rebellion and the liberation of Japan.",
+      "tags": [
+        "Strategy",
+        "Military",
+        "Tactics"
+      ],
+      "coverImage": "https://wallpapercave.com/wp/wp2883502.jpg",
+      "readingTime": "8 min"
     },
     {
-      "title": "United the World",
-      "description": "Brought lasting peace through the Zero Requiem"
-    },
-    {
-      "title": "Undefeated in Chess",
-      "description": "Never lost a match against nobility or AI opponents"
+      "slug": "chess-and-war",
+      "title": "Chess and War: The Art of Sacrifice",
+      "date": "2018-01-10",
+      "excerpt": "How the principles of chess apply to real-world strategy, and why sometimes the king must lead from the front.",
+      "tags": [
+        "Chess",
+        "Leadership",
+        "Philosophy"
+      ],
+      "coverImage": "https://wallpapercave.com/wp/wp2883510.jpg",
+      "readingTime": "6 min"
     }
   ],
   "quotes": [

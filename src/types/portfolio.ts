@@ -18,6 +18,7 @@ export interface Social {
 export interface Skill {
   name: string;
   icon: string;
+  color: string;
 }
 
 export interface Experience {
@@ -41,19 +42,25 @@ export interface Project {
   featured: boolean;
 }
 
-export interface Achievement {
+export interface BlogPost {
+  slug: string;
   title: string;
-  description: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+  coverImage?: string;
+  readingTime?: string;
 }
 
 export interface PortfolioData {
   theme: string;
+  github: string;
   profile: Profile;
   roles: string[];
   socials: Social[];
   skills: Skill[];
   experience: Experience[];
   projects: Project[];
-  achievements: Achievement[];
+  blogs: BlogPost[];
   quotes: string[];
 }

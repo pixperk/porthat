@@ -40,7 +40,7 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
             {mode === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
         </div>
-        <div className="absolute -bottom-12 left-6 sm:left-8">
+        <div className="absolute -bottom-12 left-6 sm:left-8 z-20">
           <motion.div
             whileHover={{ scale: 1.02 }}
             className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-4 shadow-xl"
