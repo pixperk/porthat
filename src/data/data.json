@@ -23,14 +23,14 @@
     { "name": "LinkedIn", "url": "https://linkedin.com/in/zero", "icon": "linkedin" }
   ],
   "skills": [
-    { "name": "Strategic Planning", "level": 100 },
-    { "name": "Tactical Analysis", "level": 98 },
-    { "name": "Leadership", "level": 95 },
-    { "name": "Chess", "level": 99 },
-    { "name": "Knightmare Piloting", "level": 85 },
-    { "name": "Manipulation", "level": 97 },
-    { "name": "Public Speaking", "level": 92 },
-    { "name": "Geass Control", "level": 90 }
+    { "name": "Strategic Planning", "icon": "brain" },
+    { "name": "Tactical Analysis", "icon": "target" },
+    { "name": "Leadership", "icon": "crown" },
+    { "name": "Chess", "icon": "trophy" },
+    { "name": "Knightmare Piloting", "icon": "gamepad" },
+    { "name": "Manipulation", "icon": "message" },
+    { "name": "Public Speaking", "icon": "mic" },
+    { "name": "Geass Control", "icon": "eye" }
   ],
   "experience": [
     {

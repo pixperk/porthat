@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Download, Mail, Calendar } from "lucide-react";
+import { Download, Mail, Calendar, Sun, Moon } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { ANIMATION } from "../../lib/constants";
 import { getGradient } from "../../lib/themes";
@@ -14,7 +14,7 @@ interface HeroProps {
 }
 
 export default function Hero({ profile, roles, socials }: HeroProps) {
-  const { colors } = useTheme();
+  const { colors, mode, setMode } = useTheme();
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -29,6 +29,16 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
       <motion.div variants={ANIMATION.fadeIn} className="relative mb-6">
         <div className="relative overflow-hidden rounded-2xl h-32 sm:h-40">
           <img src={profile.banner} alt="Banner" className="w-full h-full object-cover" />
+          <button
+            onClick={(e) => setMode(mode === "dark" ? "light" : "dark", e)}
+            className="absolute top-3 right-3 p-2 rounded-lg transition-colors backdrop-blur-sm hover:bg-white/30"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.2)",
+              color: "#fff",
+            }}
+          >
+            {mode === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
         </div>
         <div className="absolute -bottom-12 left-6 sm:left-8">
           <motion.div
@@ -43,8 +53,11 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
 
       <motion.section
         variants={ANIMATION.fadeIn}
-        className="rounded-2xl border p-6 sm:p-8 mb-6 pt-16 sm:pt-14 glass-card"
-        style={{ backgroundColor: colors.card, borderColor: colors.border }}
+        className="rounded-2xl border p-6 sm:p-8 mb-6 pt-16 sm:pt-14 backdrop-blur-xl"
+        style={{
+          backgroundColor: mode === "dark" ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.6)",
+          borderColor: mode === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
+        }}
       >
         <div className="mb-4">
           <div className="flex items-center gap-2 flex-wrap">
@@ -60,8 +73,17 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-auto flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all"
-              style={{ backgroundColor: `${colors.foreground}08`, color: `${colors.foreground}b3` }}
+              className="ml-auto flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200"
+              style={{
+                backgroundColor: mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                color: `${colors.foreground}b3`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = mode === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
+              }}
             >
               <Download className="w-3 h-3" />
               Resume
@@ -94,7 +116,7 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             style={{ background: getGradient(colors), boxShadow: `0 10px 15px -3px ${colors.primary}40` }}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium text-white relative overflow-hidden group"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium text-white relative overflow-hidden group transition-all duration-300 hover:shadow-lg"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 relative z-10" />
@@ -104,8 +126,19 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
             href={`mailto:${profile.email}`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium border-2 transition-all"
-            style={{ borderColor: `${colors.foreground}33`, color: colors.foreground }}
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium border-2 transition-all duration-300"
+            style={{
+              borderColor: mode === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)",
+              color: colors.foreground,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = mode === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)";
+              e.currentTarget.style.borderColor = mode === "dark" ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+              e.currentTarget.style.borderColor = mode === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)";
+            }}
           >
             <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             Drop a mail
@@ -125,8 +158,19 @@ export default function Hero({ profile, roles, socials }: HeroProps) {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-xs sm:text-sm transition-all"
-                style={{ backgroundColor: `${colors.foreground}08`, color: `${colors.foreground}b3` }}
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-xs sm:text-sm transition-all duration-200"
+                style={{
+                  backgroundColor: mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                  color: `${colors.foreground}b3`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = mode === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)";
+                  e.currentTarget.style.color = colors.foreground;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
+                  e.currentTarget.style.color = `${colors.foreground}b3`;
+                }}
               >
                 <Icon name={social.icon} className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {social.name}

@@ -17,7 +17,7 @@ export interface Social {
 
 export interface Skill {
   name: string;
-  level: number;
+  icon: string;
 }
 
 export interface Experience {

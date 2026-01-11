@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ThemeProvider, useTheme } from "../../context/ThemeContext";
 import { ANIMATION } from "../../lib/constants";
-import { Hero, Experience, Projects, Skills, Achievements, Footer } from "./index";
+import { Hero, Experience, Projects, SkillSlider, Achievements, Footer } from "./index";
 import type { PortfolioData } from "../../types/portfolio";
 
 interface PortfolioProps {
@@ -12,7 +12,7 @@ function PortfolioContent({ data }: PortfolioProps) {
   const { colors } = useTheme();
 
   return (
-    <>
+    <div style={{ backgroundColor: colors.background, minHeight: "100vh" }}>
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
@@ -27,13 +27,20 @@ function PortfolioContent({ data }: PortfolioProps) {
         variants={ANIMATION.stagger}
       >
         <Hero profile={data.profile} roles={data.roles} socials={data.socials} />
-        <Skills skills={data.skills} />
+
+        <motion.section variants={ANIMATION.fadeIn} className="mb-6">
+          <p className="text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: `${colors.foreground}99` }}>
+            My <span style={{ color: colors.foreground }} className="font-medium">skills</span>
+          </p>
+          <SkillSlider skills={data.skills} />
+        </motion.section>
+
         <Experience experiences={data.experience} />
         <Projects projects={data.projects} />
         <Achievements achievements={data.achievements} />
         <Footer quotes={data.quotes} handle={data.profile.handle} />
       </motion.div>
-    </>
+    </div>
   );
 }
 

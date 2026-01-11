@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { ANIMATION } from "../../lib/constants";
-import { getSectionGradient } from "../../lib/themes";
+import { getSectionGradient, getGlowColor } from "../../lib/themes";
 import type { Project } from "../../types/portfolio";
 
 interface ProjectsProps {
@@ -10,17 +10,20 @@ interface ProjectsProps {
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  const { colors } = useTheme();
+  const { colors, mode } = useTheme();
 
   return (
     <motion.section
       variants={ANIMATION.fadeIn}
       className="mb-5 sm:mb-6 relative overflow-hidden rounded-2xl p-4 sm:p-6 backdrop-blur-xl border"
-      style={{ background: getSectionGradient(colors), borderColor: colors.border }}
+      style={{
+        background: getSectionGradient(colors, mode),
+        borderColor: mode === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
+      }}
     >
       <div
         className="absolute -top-24 -right-24 w-48 h-48 rounded-full blur-3xl pointer-events-none"
-        style={{ background: `${colors.accent}25` }}
+        style={{ background: getGlowColor(colors, mode) }}
       />
       <div className="relative z-10">
         <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
@@ -48,7 +51,16 @@ export default function Projects({ projects }: ProjectsProps) {
               whileTap={{ scale: 0.98 }}
               transition={ANIMATION.spring}
               className="group rounded-xl border overflow-hidden cursor-pointer"
-              style={{ backgroundColor: colors.card, borderColor: colors.border }}
+              style={{
+                backgroundColor: mode === "dark" ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.6)",
+                borderColor: mode === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = mode === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = mode === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)";
+              }}
             >
               <div className="relative h-36 sm:h-44 overflow-hidden bg-black/50">
                 <img
@@ -94,7 +106,10 @@ export default function Projects({ projects }: ProjectsProps) {
                     <span
                       key={tag}
                       className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium"
-                      style={{ backgroundColor: `${colors.foreground}10`, color: `${colors.foreground}b3` }}
+                      style={{
+                        backgroundColor: mode === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
+                        color: `${colors.foreground}b3`,
+                      }}
                     >
                       {tag}
                     </span>
